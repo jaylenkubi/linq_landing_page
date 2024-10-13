@@ -1,0 +1,120 @@
+.button {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 0.5rem 1.25rem;
+    backdrop-filter: blur(12px);
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 80%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    &:hover::before {
+        opacity: 1;
+    }
+
+    &[data-variant="hero"] {
+        background: linear-gradient(135deg, var(--mantine-color-purple-6), var(--mantine-color-pink-5));
+        color: var(--mantine-color-peach-0);
+        border: none;
+        box-shadow: 0 4px 6px rgba(var(--mantine-color-purple-9-rgb), 0.2);
+
+        &:hover {
+            background: linear-gradient(135deg, var(--mantine-color-purple-7), var(--mantine-color-pink-6));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(var(--mantine-color-purple-9-rgb), 0.25);
+        }
+
+        &:active {
+            background: linear-gradient(135deg, var(--mantine-color-purple-8), var(--mantine-color-pink-7));
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(var(--mantine-color-purple-9-rgb), 0.15);
+        }
+
+        &::before {
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 80%);
+        }
+    }
+
+    &[data-variant="filled"] {
+        background: var(--mantine-color-purple-5);
+        color: var(--mantine-color-peach-0);
+
+        &:hover {
+            background: var(--mantine-color-purple-6);
+            box-shadow: 0 4px 8px rgba(var(--mantine-color-purple-9-rgb), 0.15);
+            transform: translateY(-2px);
+        }
+
+        &:active {
+            background: var(--mantine-color-purple-7);
+            transform: translateY(1px);
+            box-shadow: 0 1px 2px rgba(var(--mantine-color-purple-9-rgb), 0.1);
+        }
+    }
+
+    &[data-variant="outline"] {
+        color: var(--mantine-color-purple-5);
+        border: 2px solid var(--mantine-color-purple-5);
+        background-color: transparent;
+
+        &:hover {
+            background-color: rgba(var(--mantine-color-purple-5-rgb), 0.1);
+            border-color: var(--mantine-color-coral-5);
+            color: var(--mantine-color-coral-5);
+        }
+
+        &:active {
+            background-color: rgba(var(--mantine-color-purple-5-rgb), 0.2);
+        }
+    }
+
+    &[data-variant="subtle"] {
+        color: var(--mantine-color-purple-5);
+        padding: 0.25rem 0.5rem;
+        background: transparent;
+
+        &:hover {
+            color: var(--mantine-color-coral-5);
+            text-shadow: 0 0 8px rgba(var(--mantine-color-coral-5-rgb), 0.5);
+        }
+
+        &:active {
+            color: var(--mantine-color-coral-6);
+        }
+    }
+
+    &[data-variant="dark"] {
+        color: var(--mantine-color-purple-5);
+        border: 2px solid var(--mantine-color-purple-5);
+        background-color: rgba(var(--mantine-color-peach-0-rgb), 0.9);
+
+        &:hover {
+            background-color: var(--mantine-color-peach-0);
+            border-color: var(--mantine-color-pink-5);
+            color: var(--mantine-color-pink-5);
+            box-shadow: 0 0 10px rgba(var(--mantine-color-pink-5-rgb), 0.3);
+        }
+
+        &:active {
+            background-color: var(--mantine-color-peach-1);
+            box-shadow: 0 0 5px rgba(var(--mantine-color-pink-5-rgb), 0.3);
+        }
+    }
+}
+
+.main {
+    background: var(--background);
+    backdrop-filter: blur(40px);
+    color: var(--textColor);
+}

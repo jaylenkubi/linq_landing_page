@@ -1,0 +1,48 @@
+.textShimmer {
+    max-width: 16rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--mantine-color-purple-2); /* Light purple for better visibility */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Shimmer effect */
+    animation: shimmer 2s cubic-bezier(.6, .6, 0, 1) infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: var(--shimmer-width) 100%;
+    /* Shimmer gradient using your color palette */
+    background-image: linear-gradient(
+            90deg,
+            var(--mantine-color-purple-5) 0%,
+            var(--mantine-color-pink-5) 50%,
+            var(--mantine-color-coral-5) 100%
+    );
+
+    padding: 0.2rem 1rem;
+    border: 2px solid var(--mantine-color-purple-3);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: var(--mantine-color-purple-5);
+        box-shadow: 0 0 10px rgba(var(--mantine-color-purple-5-rgb), 0.3);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: calc(0px - var(--shimmer-width)) 0;
+    }
+    100% {
+        background-position: var(--shimmer-width) 0;
+    }
+}
+
+/* Ensure the --shimmer-width CSS variable is set */
+:root {
+    --shimmer-width: 300px; /* Adjust as needed */
+}

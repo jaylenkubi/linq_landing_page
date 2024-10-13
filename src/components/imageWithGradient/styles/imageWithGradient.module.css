@@ -1,0 +1,78 @@
+.outerSection {
+    opacity: 0;
+    position: relative;
+    perspective: 2000px;
+    animation: fade-up 0.6s ease-out forwards;
+    animation-delay: 400ms;
+    padding: 2rem;
+
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 50;
+        background: linear-gradient(
+                to top,
+                #ffffff 20%,
+                transparent
+        );
+
+    }
+
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.innerSection {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    position: relative;
+
+
+    &:before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 50;
+    }
+}
+
+.glowEffect {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    background: radial-gradient(
+            circle at center,
+            rgba(var(--mantine-color-purple-5-rgb), 0.15) 0%,
+            rgba(var(--mantine-color-purple-5-rgb), 0.05) 25%,
+            transparent 70%
+    );
+    filter: blur(40px);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.innerSection.animate-glow .glowEffect {
+    opacity: 1;
+}
+
+.image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: inherit;
+    object-fit: contain;
+    z-index: 1;
+}

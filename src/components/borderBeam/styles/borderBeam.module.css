@@ -1,0 +1,26 @@
+.border-beam {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1.5px solid transparent;
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+    mask: linear-gradient(transparent, transparent), linear-gradient(black, black);
+}
+
+.border-beam::after {
+    content: "";
+    position: absolute;
+    aspect-ratio: 1 / 1;
+    width: 100px;
+    animation: border-beam 15s linear infinite 0s;
+    background: linear-gradient(to left, #ffaa40, #9c40ff, transparent);
+    offset-anchor: 90% 50%;
+    offset-path: rect(0 auto auto 0 round 100px);
+}
+
+@keyframes border-beam {
+    100% {
+        offset-distance: 100%;
+    }
+}

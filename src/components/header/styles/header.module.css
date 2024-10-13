@@ -1,0 +1,54 @@
+.header {
+    transform: translateY(-1rem);
+    animation: fadeIn 600ms ease forwards;
+    border-bottom: 1px solid var(--mantine-color-purple-2);
+    opacity: 0;
+    background: linear-gradient(to bottom,
+    rgba(var(--mantine-color-peach-0-rgb), 0.8),
+    rgba(var(--mantine-color-peach-1-rgb), 0.8)
+    );
+    box-shadow: 0 1px 3px 0 rgba(var(--mantine-color-purple-9-rgb), 0.1),
+    0 1px 2px 0 rgba(var(--mantine-color-purple-9-rgb), 0.06);
+    backdrop-filter: blur(12px);
+    animation-delay: 600ms;
+}
+
+.burger {
+    margin-left: 1.5rem;
+    color: var(--mantine-color-purple-6);
+
+    &:hover {
+        color: var(--mantine-color-purple-7);
+    }
+}
+
+@media (min-width: 768px) {
+    .burger {
+        display: none;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.headerLogo {
+    color: var(--mantine-color-purple-7);
+}
+
+.headerNavLink {
+    text-decoration: none;
+    color: var(--mantine-color-purple-7);
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: var(--mantine-color-purple-8);
+    }
+
+    &.active {
+        color: var(--mantine-color-pink-6);
+    }
+}
